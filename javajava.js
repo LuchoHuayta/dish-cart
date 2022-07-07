@@ -48,24 +48,25 @@ function renderCart() {
     dishCartContainer.innerHTML = ''
     cart.map(dish => {
         const cartRow = document.createElement('div')
-
+        cartRow.classList.add('dishesCart')
         const cartContent = `
 <div class="fila">
     <div class="cart-dish">
         <img src=${dish.img} width=50px>
-        <p class="shopping-cart-item-title shoppingCartItemTitle">${dish.title}</p>
+        <p class="dishTitle">${dish.title}</p>
     </div>
     <div class="cart-price">
-        <p class="item-price dishPrice">${dish.price}</p>
+        <p class="dishPrice">${dish.price}</p>
     </div>
     <div class="cart-quantity ">
-        <input class="dishQuantity" type="number"
-            value="1">
-        <button class="buttonDelete" type="button">X</button>
+        <input class="dishQuantity" type="number" min="1" value=${dish.quantity}>
+        <button class="buttonDelete">x</button>
     </div>
 </div>`
         cartRow.innerHTML = cartContent
         dishCartContainer.append(cartRow)
+
+        cartRow.querySelector(".buttonDelete").addEventListener('click', removeDish)
     })
     updateCartTotal()
 }
@@ -81,4 +82,18 @@ function updateCartTotal() {
 
     cartTotal.innerHTML = `Total $${total}`
     console.log(total)
+}
+
+function removeDish(event) {
+    const deleteButton = event.target
+    const cartRow = deleteButton.closest(".dishesCart")
+    const title = cartRow.querySelector('.dishTitle').textContent
+    for(let i=0; i<cart.length; i++){
+        if(cart[i].cartRow.trim() === title.trim()){
+            cart.splice(i, 1) // eliminar de la posicion i 1 solo
+            console.log('hola mundo')
+        }
+    }
+    cartRow.remove()
+    updateCartTotal()
 }
