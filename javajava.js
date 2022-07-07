@@ -29,7 +29,7 @@ function addDishToCart(newDish) {
 
     const inputElement = dishCartContainer.getElementsByClassName('dishQuantity')
     for(let i = 0; i< cart.length; i++){
-        if(cart[i].title.trim() === newDish.title.trim()){
+        if(cart[i].title === newDish.title){
             cart[i].quantity ++
             const inputValue = inputElement[i]
             inputValue.value++
@@ -89,9 +89,8 @@ function removeDish(event) {
     const cartRow = deleteButton.closest(".dishesCart")
     const title = cartRow.querySelector('.dishTitle').textContent
     for(let i=0; i<cart.length; i++){
-        if(cart[i].cartRow.trim() === title.trim()){
+        if(cart[i].title === title){
             cart.splice(i, 1) // eliminar de la posicion i 1 solo
-            console.log('hola mundo')
         }
     }
     cartRow.remove()
