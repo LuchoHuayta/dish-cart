@@ -56,21 +56,25 @@ body::-webkit-scrollbar-thumb {
 /*MAIN-MENU--START*/
 .menu-main {
   background-color: #3e3f43;
+  display: grid;
+  grid-template-columns: 65% 35%;
 }
 
-.menu-main h1 {
+h1 {
   color: #FFFFFF;
-  text-align: center;
+  text-align: left;
   font-size: 70px;
   font-family: "LibreBaskerville-Bold";
   text-transform: uppercase;
-  padding-top: 10px;
-  padding-bottom: 50px;
 }
 
 
-.menu-main .menu-section {
-  padding-bottom: 100px;
+.menu-section {
+  padding: 50px;
+}
+
+.shopping-cart {
+  padding: 50px 50px 50px 0;
 }
 
 .menu-container-grid {
@@ -82,8 +86,6 @@ body::-webkit-scrollbar-thumb {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  max-width: 1300px;
-  margin: 0px auto;
 }
 
 .menu-container-grid .card div h3 {
@@ -111,12 +113,6 @@ body::-webkit-scrollbar-thumb {
   width: 100%;
 }
 
-
-
-/*MAIN-MENU--END*/
-
-/*post JAVASCRIPT*/
-
 .cart {
   color: #FFFFFF;
   font-size: 26px;
@@ -131,6 +127,10 @@ body::-webkit-scrollbar-thumb {
   justify-content: space-between;
   padding: 5px;
   cursor: pointer;
+}
+
+.fa-github {
+  color: #FFFFFF;
 }
 
 #precio {
@@ -161,8 +161,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 .fila {
-  max-width: 1200px;
-  margin: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -172,6 +170,36 @@ body::-webkit-scrollbar-thumb {
 .cart-dish {
   display: flex;
   align-items: center;
+  color: #FFFFFF;
+  width: 185px;
+}
+
+.cart-price {
+  width: 150px;
+}
+
+.cart-quantity {
+  width: 75px;
+}
+
+.cart-quantity input {
+  border: none;
+  appearance: none;
+  border-radius: 2px;
+  padding: 1px;
+  width: 50px;
+  color: #222;
+  font-size: 14px;
+}
+
+.cart-quantity button {
+  border: none;
+  appearance: none;
+  background: rgb(194, 35, 35);
+  border-radius: 2px;
+  padding: 4px;
+  width: 20px;
+  font-size: 16px;
   color: #FFFFFF;
 }
 
@@ -189,10 +217,42 @@ body::-webkit-scrollbar-thumb {
 .totalContainer {
   font-size: 20px;
   color: #FFFFFF;
+  padding: 5px;
+  border-top: solid white 1px;
+  text-align: center;
+}
 
+.dishTitle {
+  height: 80px;
+  padding: 22px 0 0 5px
+}
+
+.plato {
+  height: 70px;
+}
+
+.cartTotal {
+  padding-top: 10px;
+}
+
+header {
   display: flex;
-  justify-content: space-between;
+  padding-left: 40px;
+  padding-top: 40px;
+  align-items: center;
+}
 
-  max-width: 100px;
-  margin: 25px auto;
+#logo {
+  height: 120px;
+  width: auto;
+}
+
+.special-card div {
+  align-items: center;
+}
+
+.special-card div p {
+  color: #ffffff;
+  font-family: "Inter-SemiBold";
+  text-align: center;
 }

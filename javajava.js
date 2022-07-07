@@ -1,17 +1,19 @@
-//icono de agregar carrito
+//LUCIANO HUAYTA DISH PAULINAS RESTO TEST
 const addToCartButtons = document.querySelectorAll('.addToCart')
 const dishCartContainer = document.querySelector('.dishCartContainer')
 let cart = []
 
+//boton de agregar dishessssss
 addToCartButtons.forEach(addButton => {
     addButton.addEventListener('click', addClicked)
 })
 
+//sacar data del html
 function addClicked(event) {
     const button = event.target
     const dish = button.closest('.card') //obten contenedor mas cercano a clase card
 
-    const dishTitle = dish.querySelector('.dishTitle').textContent
+    const dishTitle = dish.querySelector('.plato').textContent
     const dishPrice = dish.querySelector('.dishPrice').textContent
     const dishImage = dish.querySelector('.dishImage').src
 
@@ -25,6 +27,7 @@ function addClicked(event) {
     addDishToCart(newDish)
 }
 
+//agregar dishes al cart
 function addDishToCart(newDish) {
 
     const inputElement = dishCartContainer.getElementsByClassName('dishQuantity')
@@ -44,6 +47,7 @@ function addDishToCart(newDish) {
     renderCart()
 }
 
+// pintar cart en base a dish agregados
 function renderCart() {
     dishCartContainer.innerHTML = ''
     cart.map(dish => {
@@ -58,7 +62,7 @@ function renderCart() {
     <div class="cart-price">
         <p class="dishPrice">${dish.price}</p>
     </div>
-    <div class="cart-quantity ">
+    <div class="cart-quantity">
         <input class="dishQuantity" type="number" min="1" value=${dish.quantity}>
         <button class="buttonDelete">x</button>
     </div>
@@ -67,10 +71,12 @@ function renderCart() {
         dishCartContainer.append(cartRow)
 
         cartRow.querySelector(".buttonDelete").addEventListener('click', removeDish)
+        cartRow.querySelector(".dishQuantity").addEventListener('change', inputQuantity)
     })
     updateCartTotal()
 }
 
+// actualizar precio
 function updateCartTotal() {
     let total = 0
     const cartTotal = document.querySelector('.cartTotal')
@@ -81,9 +87,10 @@ function updateCartTotal() {
     })
 
     cartTotal.innerHTML = `Total $${total}`
-    console.log(total)
+    addLocalStorage()
 }
 
+//borrar una fila de un dish
 function removeDish(event) {
     const deleteButton = event.target
     const cartRow = deleteButton.closest(".dishesCart")
@@ -95,4 +102,32 @@ function removeDish(event) {
     }
     cartRow.remove()
     updateCartTotal()
+}
+
+//input de cantidad, no es posible menor a 1
+function inputQuantity(event) {
+    const inputAddition = event.target
+    const cartRow = inputAddition.closest(".dishesCart")
+    const title = cartRow.querySelector('.dishTitle').textContent
+    cart.forEach(dish => {
+        if(dish.title === title){
+            inputAddition.value < 1 ? (inputAddition.value = 1) : inputAddition.value
+            dish.quantity = inputAddition.value
+            updateCartTotal()
+        }
+    })
+}
+
+//agrega el localstorage al navegador, se pasa a string y luego se parsea a la normalidad
+function addLocalStorage(){
+    localStorage.setItem('cart', JSON.stringify(cart))
+}
+
+//window onload supustamente carga insta, ???qcyo revisar, chao JSON e imprimir local
+window.onload = function() {
+    const storage = JSON.parse(localStorage.getItem('cart'))
+    if(storage){
+        cart = storage
+        renderCart()
+    }
 }
