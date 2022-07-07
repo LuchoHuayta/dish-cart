@@ -1,73 +1,84 @@
-//ingles para evitar la Ñ añadir
-
 //icono de agregar carrito
 const addToCartButtons = document.querySelectorAll('.addToCart')
+const dishCartContainer = document.querySelector('.dishCartContainer')
+let cart = []
+
 addToCartButtons.forEach(addButton => {
     addButton.addEventListener('click', addClicked)
 })
 
-const dishCartContainer = document.querySelector('.dishCartContainer')
-
 function addClicked(event) {
     const button = event.target
-    const dish = button.closest('.card')
+    const dish = button.closest('.card') //obten contenedor mas cercano a clase card
 
     const dishTitle = dish.querySelector('.dishTitle').textContent
     const dishPrice = dish.querySelector('.dishPrice').textContent
     const dishImage = dish.querySelector('.dishImage').src
 
-    addDishToCart(dishTitle, dishPrice, dishImage)
+    const newDish = {
+        title: dishTitle,
+        price: dishPrice,
+        img: dishImage,
+        quantity: 1
+    }
+
+    addDishToCart(newDish)
 }
 
-//agrega fila con datos al carrito
-function addDishToCart(dishTitle, dishPrice, dishImage) {
-    const cartRow = document.createElement('div')
-    const cartContent = `
+function addDishToCart(newDish) {
+
+    const inputElement = dishCartContainer.getElementsByClassName('dishQuantity')
+    for(let i = 0; i< cart.length; i++){
+        if(cart[i].title.trim() === newDish.title.trim()){
+            cart[i].quantity ++
+            const inputValue = inputElement[i]
+            inputValue.value++
+
+            updateCartTotal()
+            return null
+        }
+    }
+
+    cart.push(newDish)
+
+    renderCart()
+}
+
+function renderCart() {
+    dishCartContainer.innerHTML = ''
+    cart.map(dish => {
+        const cartRow = document.createElement('div')
+
+        const cartContent = `
 <div class="fila">
     <div class="cart-dish">
-        <img src=${dishImage} width=50px>
-        <p class="shopping-cart-item-title shoppingCartItemTitle">${dishTitle}</p>
+        <img src=${dish.img} width=50px>
+        <p class="shopping-cart-item-title shoppingCartItemTitle">${dish.title}</p>
     </div>
     <div class="cart-price">
-        <p class="item-price dishPrice">${dishPrice}</p>
+        <p class="item-price dishPrice">${dish.price}</p>
     </div>
     <div class="cart-quantity ">
-        <input class="shopping-cart-quantity-input dishQuantity" type="number"
+        <input class="dishQuantity" type="number"
             value="1">
         <button class="buttonDelete" type="button">X</button>
     </div>
 </div>`
-    cartRow.innerHTML = cartContent
-    dishCartContainer.append(cartRow)
-
-    cartRow.querySelector('.buttonDelete').addEventListener ('click', removeCartDish)
-
+        cartRow.innerHTML = cartContent
+        dishCartContainer.append(cartRow)
+    })
     updateCartTotal()
 }
 
-//funcion  para actualizar total del carrito
-function updateCartTotal(){
+function updateCartTotal() {
     let total = 0
     const cartTotal = document.querySelector('.cartTotal')
 
-    const cartDishes = document.querySelectorAll('.fila')
-
-    cartDishes.forEach(fila => {
-        const cartPriceDishElement = fila.querySelector('.dishPrice')
-        const cartPriceDish = Number(cartPriceDishElement.textContent.replace('$',''))
-//utilizo number para cambiar string a tipo numero
-        const cartQuantityDishElement = fila.querySelector('.dishQuantity')
-        const cartQuantityDish = Number(cartQuantityDishElement.value)
-
-        total = total + cartPriceDish * cartQuantityDish
+    cart.forEach((dish) => {
+        const price = Number(dish.price.replace("$", ''))
+        total = total + price * dish.quantity
     })
-    cartTotal.innerHTML = `$${total}`
-}
 
-function removeCartDish(event) {
-    const buttonClicled = event.target
-    buttonClicled.closest('.fila').remove()
-    updateCartTotal()
+    cartTotal.innerHTML = `Total $${total}`
+    console.log(total)
 }
-
-//corregir cartQuantityDish,,, no superposicion,, y aplique updateCartTotal por x cantidad
