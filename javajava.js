@@ -30,6 +30,8 @@ function addClicked(event) {
 //agregar dishes al cart
 function addDishToCart(newDish) {
 
+    addToast('success','Added dish!')
+
     const inputElement = dishCartContainer.getElementsByClassName('dishQuantity')
     for(let i = 0; i< cart.length; i++){
         if(cart[i].title === newDish.title){
@@ -92,6 +94,9 @@ function updateCartTotal() {
 
 //borrar una fila de un dish
 function removeDish(event) {
+
+    addToast('error','Removed dish!')
+
     const deleteButton = event.target
     const cartRow = deleteButton.closest(".dishesCart")
     const title = cartRow.querySelector('.dishTitle').textContent
@@ -130,4 +135,17 @@ window.onload = function() {
         cart = storage
         renderCart()
     }
+}
+
+//sweetalert2 para tostadas de dishes agregados y borrados
+const addToast = (icon, title) => {
+    Swal.fire({
+        icon: icon,
+        title: title,
+        position: 'top-end',
+        showConfirmButton: false,
+        toast: true,
+        timer: 1500,
+        timeProgressBar: true,
+    })
 }
