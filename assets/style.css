@@ -126,7 +126,14 @@ h1 {
   display: flex;
   justify-content: space-between;
   padding: 5px;
+}
+
+.addToCart {
   cursor: pointer;
+}
+
+.addToCart:hover {
+  color: greenyellow;
 }
 
 .fa-github {
@@ -201,6 +208,11 @@ h1 {
   width: 20px;
   font-size: 16px;
   color: #FFFFFF;
+  cursor: pointer;
+}
+
+.buttonDelete:hover{
+  background-color: red;
 }
 
 .total {

@@ -128,7 +128,7 @@ function addLocalStorage(){
     localStorage.setItem('cart', JSON.stringify(cart))
 }
 
-//window onload supustamente carga insta, ???qcyo revisar, chao JSON e imprimir local
+//chao JSON e imprimir local
 window.onload = function() {
     const storage = JSON.parse(localStorage.getItem('cart'))
     if(storage){
