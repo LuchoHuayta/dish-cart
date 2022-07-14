@@ -1,0 +1,102 @@
+[
+    {
+        "titulo": "Aji de Gallina",
+        "imagen": "./assets/images/aji-gallina-small.jpg",
+        "precio": "$1400"
+    },
+    {
+        "titulo": "Salteado de Pollo",
+        "imagen": "./assets/images/salteado-pollo.jpg",
+        "precio": "$1250"
+    },
+    {
+        "titulo": "Chaufa de Pollo",
+        "imagen": "./assets/images/chaufa-pollo-small.jpg",
+        "precio": "$1250"
+    },
+    {
+        "titulo": "Tallarines Salt Pollo",
+        "imagen": "./assets/images/tallarin-pollo.jpg",
+        "precio": "$1100"
+    },
+    {
+        "titulo": "Lomo Saltado",
+        "imagen": "./assets/images/lomo-saltado-small.jpg",
+        "precio": "$1500"
+    },
+    {
+        "titulo": "Chaufa de Carne",
+        "imagen": "./assets/images/chaufa-carne.jpg",
+        "precio": "$1350"
+    },
+    {
+        "titulo": "Tallarines Salt Carne",
+        "imagen": "./assets/images/tallarin-carne.jpg",
+        "precio": "$1350"
+    },
+    {
+        "titulo": "Ceviche",
+        "imagen": "./assets/images/ceviche-small.jpg",
+        "precio": "$1800"
+    },
+    {
+        "titulo": "Mero a lo Macho",
+        "imagen": "./assets/images/mero-macho.jpg",
+        "precio": "$1750"
+    },
+    {
+        "titulo": "Lenguado Chorrillana",
+        "imagen": "./assets/images/lenguado-chorriana.jpg",
+        "precio": "$1650"
+    },
+    {
+        "titulo": "Salteado de Pescado",
+        "imagen": "./assets/images/salteado-pescado.jpg",
+        "precio": "$1600"
+    },
+    {
+        "titulo": "Aji de Camarones",
+        "imagen": "./assets/images/aji-camarones.png",
+        "precio": "$1850"
+    },
+    {
+        "titulo": "Chaufa de Camarones",
+        "imagen": "./assets/images/chaufa-camaron.png",
+        "precio": "$1800"
+    },
+    {
+        "titulo": "Picante de Mariscos",
+        "imagen": "./assets/images/picante-mariscos.jpg",
+        "precio": "$1700"
+    },
+    {
+        "titulo": "Arroz con Mariscos",
+        "imagen": "./assets/images/arroz-mariscos.png",
+        "precio": "$1700"
+    },
+    {
+        "titulo": "Salteado de Mariscos",
+        "imagen": "./assets/images/salteado-mariscos.jpg",
+        "precio": "$1650"
+    },
+    {
+        "titulo": "Tallarines Salt Marisc",
+        "imagen": "./assets/images/tallarin-mariscos.jpg",
+        "precio": "$1650"
+    },
+    {
+        "titulo": "Papa a la Huancaina",
+        "imagen": "./assets/images/papa-huancaina.jpg",
+        "precio": "$850"
+    },
+    {
+        "titulo": "Chaufa de Verduras",
+        "imagen": "./assets/images/chaufa-veggie.jpg",
+        "precio": "$1000"
+    },
+    {
+        "titulo": "Little Grub 🐛",
+        "imagen": "./assets/images/grub-small.jpg",
+        "precio": "$1"
+    }
+]

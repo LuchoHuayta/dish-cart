@@ -1,6 +1,21 @@
 //LUCIANO HUAYTA DISH PAULINAS RESTO TEST
+
+//constantes para agregar menu en json al contenido en html
+const contentDOM = document.querySelector("#insertDOM")
+const URL = `js/menu.json`
+
+//getContent(URL)
+getContent(URL)
+
+//test
+function teta () {console.log('click en logo')}
+const test = document.getElementById('logo')
+    test.addEventListener('click', teta)
+
+//mas constantes
 const addToCartButtons = document.querySelectorAll('.addToCart')
 const dishCartContainer = document.querySelector('.dishCartContainer')
+
 let cart = []
 
 //boton de agregar dishessssss
@@ -30,12 +45,12 @@ function addClicked(event) {
 //agregar dishes al cart
 function addDishToCart(newDish) {
 
-    addToast('success','Added dish!')
+    addToast('success', 'Added dish!')
 
     const inputElement = dishCartContainer.getElementsByClassName('dishQuantity')
-    for(let i = 0; i< cart.length; i++){
-        if(cart[i].title === newDish.title){
-            cart[i].quantity ++
+    for (let i = 0; i < cart.length; i++) {
+        if (cart[i].title === newDish.title) {
+            cart[i].quantity++
             const inputValue = inputElement[i]
             inputValue.value++
 
@@ -95,13 +110,13 @@ function updateCartTotal() {
 //borrar una fila de un dish
 function removeDish(event) {
 
-    addToast('error','Removed dish!')
+    addToast('error', 'Removed dish!')
 
     const deleteButton = event.target
     const cartRow = deleteButton.closest(".dishesCart")
     const title = cartRow.querySelector('.dishTitle').textContent
-    for(let i=0; i<cart.length; i++){
-        if(cart[i].title === title){
+    for (let i = 0; i < cart.length; i++) {
+        if (cart[i].title === title) {
             cart.splice(i, 1) // eliminar de la posicion i 1 solo
         }
     }
@@ -115,7 +130,7 @@ function inputQuantity(event) {
     const cartRow = inputAddition.closest(".dishesCart")
     const title = cartRow.querySelector('.dishTitle').textContent
     cart.forEach(dish => {
-        if(dish.title === title){
+        if (dish.title === title) {
             inputAddition.value < 1 ? (inputAddition.value = 1) : inputAddition.value
             dish.quantity = inputAddition.value
             updateCartTotal()
@@ -124,14 +139,14 @@ function inputQuantity(event) {
 }
 
 //agrega el localstorage al navegador, se pasa a string y luego se parsea a la normalidad
-function addLocalStorage(){
+function addLocalStorage() {
     localStorage.setItem('cart', JSON.stringify(cart))
 }
 
 //chao JSON e imprimir local
-window.onload = function() {
+window.onload = function () {
     const storage = JSON.parse(localStorage.getItem('cart'))
-    if(storage){
+    if (storage) {
         cart = storage
         renderCart()
     }
