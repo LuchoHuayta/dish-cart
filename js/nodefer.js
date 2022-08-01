@@ -23,4 +23,8 @@ const getContent = (URL) => {
                 showDishes += returnDishesContent(content)
             contentDOM.innerHTML = showDishes
         })
+        .catch((error)=> console.log('error'))
+        .finally(()=> console.log('finally'))
 }
+
+console.log(':C no funca despues del fetch')

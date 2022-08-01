@@ -5,18 +5,15 @@ const contentDOM = document.querySelector("#insertDOM")
 const URL = `js/menu.json`
 
 //getContent(URL)
-getContent(URL)
+document.addEventListener('DOMContentLoaded', () => {
+    getContent(URL)
+})
 
-//test
-function teta () {console.log('click en logo')}
-const test = document.getElementById('logo')
-    test.addEventListener('click', teta)
 
 //mas constantes
 const addToCartButtons = document.querySelectorAll('.addToCart')
 const dishCartContainer = document.querySelector('.dishCartContainer')
 
-let cart = []
 
 //boton de agregar dishessssss
 addToCartButtons.forEach(addButton => {

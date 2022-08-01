@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./assets/style.css">
     <script src="https://kit.fontawesome.com/a7b29f6362.js" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./js/nodefer.js"></script>
 
     <title>Paulina | Menu &#129424;</title>
 </head>
@@ -20,8 +21,50 @@
 
 
     <main class="menu-main">
-
+<!-- html mediante fetch no es detectado por el evento para agregar carrito -->
         <section class="menu-section">
+            <div class="menu-container-grid">
+                <div class="card">
+                    <div>
+                        <h3 class="plato">Huancaina Html</h3>
+                        <img class="dishImage" src="./assets/images/papa-huancaina.jpg">
+                    </div>
+                    <div class="white-icon">
+                        <p class="dishPrice">$850</p>
+                        <i class="fa-solid fa-cart-plus addToCart"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <div>
+                        <h3 class="plato">Camarones Html</h3>
+                        <img class="dishImage" src="./assets/images/aji-camarones.png">
+                    </div>
+                    <div class="white-icon">
+                        <p class="dishPrice">$1850</p>
+                        <i class="fa-solid fa-cart-plus addToCart"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <div>
+                        <h3 class="plato">Ceviche Html</h3>
+                        <img class="dishImage" src="./assets/images/ceviche-small.jpg">
+                    </div>
+                    <div class="white-icon">
+                        <p class="dishPrice">$1800</p>
+                        <i class="fa-solid fa-cart-plus addToCart"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <div>
+                        <h3 class="plato">Tallarines Html</h3>
+                        <img class="dishImage" src="./assets/images/tallarin-carne.jpg">
+                    </div>
+                    <div class="white-icon">
+                        <p class="dishPrice">$1350</p>
+                        <i class="fa-solid fa-cart-plus addToCart"></i>
+                    </div>
+                </div>
+            </div>
             <div id="insertDOM" class="menu-container-grid">
             </div>
         </section>
@@ -59,8 +102,7 @@
             </div>
 
     </main>
-    <script src="./js/nodefer.js"></script>
-    <script defer src="./js/javajava.js"></script>
+    <script src="./js/javajava.js"></script>
 </body>
 
 </html>
